@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
@@ -30,4 +31,6 @@ public class InputManager : MonoBehaviour
             return;
         }
     }
+
+
 }
