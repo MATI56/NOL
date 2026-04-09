@@ -7,7 +7,7 @@ public class InputManager : MonoBehaviour
 {
     public static InputManager Instance { get; private set; }
     public InputSystem_Actions InputActions { get; private set; }
-   
+
     private void OnEnable()
     {
         InputActions.Enable();
