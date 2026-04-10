@@ -1,7 +1,4 @@
-using System.Collections.Generic;
-using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
-using UnityEngine.Playables;
 using UnityEngine.Timeline;
 
 [CreateAssetMenu(fileName = "EndingData", menuName = "Scriptable Objects/EndingData")]
