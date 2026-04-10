@@ -9,22 +9,28 @@ public class EndingsManager : MonoBehaviour
     [SerializeField] private Bumbulator _bumbulator;
     [SerializeField] private Microwave _microwave;
     [SerializeField] private Radio _radio;
+    [SerializeField] private Oscilloscope _oscilloscope;
 
     public void CheckEndings()
     {
         foreach (EndingData ending in endings)
         {
-            if (ending.BumbulatorState.IsOn && !_bumbulator.IsStateCorrect(ending.BumbulatorState))
+            Debug.Log($"Checking ending: {ending.EndingName}");
+            if (ending.BumbulatorState.IsRequired && !_bumbulator.IsStateCorrect(ending.BumbulatorState))
             {
-                return;
+                continue;
             }
-            else if (ending.MicrowaveState.IsOn && !_microwave.IsStateCorrect(ending.MicrowaveState))
+            else if (ending.MicrowaveState.IsRequired && !_microwave.IsStateCorrect(ending.MicrowaveState))
             {
-                return;
+                continue;
             }
-            else if (ending.RadioState.IsOn && !_radio.IsStateCorrect(ending.RadioState))
+            else if (ending.RadioState.IsRequired && !_radio.IsStateCorrect(ending.RadioState))
             {
-                return;
+                continue;
+            }
+            else if (ending.OscilloscopeState.IsRequired && !_oscilloscope.IsStateCorrect(ending.OscilloscopeState))
+            {
+                continue;
             }
             else
             {

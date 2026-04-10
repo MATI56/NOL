@@ -16,5 +16,5 @@ public abstract class BaseDevice<T> : MonoBehaviour where T : BaseDeviceState
 
 public abstract class BaseDeviceState
 {
-    public bool IsOn;
+    public bool IsRequired = false;
 }

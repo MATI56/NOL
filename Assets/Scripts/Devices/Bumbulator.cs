@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,15 +7,21 @@ public class Bumbulator : BaseDevice<BumbulatorState>
     [SerializeField] private Sprite[] _symbolSprites;
     [SerializeField] private Image[] _buttonImages;
 
+    [SerializeField] private TextMeshProUGUI _switchValueText;
+
+    private int _switchValue = 0;
+
     private int[] _symbolValues = new int[] {0,0,0,0};
     
     public void Start()
     {
         CurrentState = new BumbulatorState();
+        _switchValueText.SetText(_switchValue.ToString());
     }
     public override bool IsStateCorrect(BumbulatorState state)
     {
-        if(CurrentState.FirstSymbol != state.FirstSymbol || 
+        Debug.Log($"Comparing states: Current - {CurrentState.FirstSymbol}, {CurrentState.SecondSymbol}, {CurrentState.ThirdSymbol}, {CurrentState.FourthSymbol}, {CurrentState.SwitchValue} | Target - {state.FirstSymbol}, {state.SecondSymbol}, {state.ThirdSymbol}, {state.FourthSymbol}, {state.SwitchValue}");
+        if (CurrentState.FirstSymbol != state.FirstSymbol || 
            CurrentState.SecondSymbol != state.SecondSymbol || 
            CurrentState.ThirdSymbol != state.ThirdSymbol || 
            CurrentState.FourthSymbol != state.FourthSymbol || 
@@ -23,6 +30,16 @@ public class Bumbulator : BaseDevice<BumbulatorState>
             return false;
         }
         return true;
+    }
+    public void AddToSwitchValue(int value)
+    {
+        _switchValue += value;
+        UpdateState();
+    }
+    public void SubtractFromSwitchValue(int value)
+    {
+        _switchValue -= value;
+        UpdateState();
     }
     public void IncreaseDigit(int index)
     {
@@ -46,6 +63,11 @@ public class Bumbulator : BaseDevice<BumbulatorState>
         CurrentState.SecondSymbol = _symbolValues[1];
         CurrentState.ThirdSymbol = _symbolValues[2];
         CurrentState.FourthSymbol = _symbolValues[3];
+
+        Debug.Log($"Updated symbols: {CurrentState.FirstSymbol}, {CurrentState.SecondSymbol}, {CurrentState.ThirdSymbol}, {CurrentState.FourthSymbol}");
+
+        CurrentState.SwitchValue = _switchValue;
+        _switchValueText.SetText(_switchValue.ToString());
     }
 }
 
@@ -69,6 +91,7 @@ public class BumbulatorState : BaseDeviceState
         SecondSymbol = 0;
         ThirdSymbol = 0;
         FourthSymbol = 0;
+
         SwitchValue = 0;
     } 
 }

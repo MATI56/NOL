@@ -15,7 +15,7 @@ public class Radio : BaseDevice<RadioState>
     }
     public void SetFrequency(float knobValue)
     {
-        CurrentState.Frequency = Mathf.Lerp(frequencyRange.y, frequencyRange.x, knobValue);
+        CurrentState.Frequency = Mathf.Round(Mathf.Lerp(frequencyRange.y, frequencyRange.x, knobValue));
         frequencyDisplay.SetText($"{CurrentState.Frequency:F1} MHz");
     }
     public void TryPlay()
@@ -33,7 +33,8 @@ public class Radio : BaseDevice<RadioState>
     }
     public override bool IsStateCorrect(RadioState state)
     {
-        if(CurrentState.Frequency != state.Frequency)
+        Debug.Log($"Checking Radio State: Current Frequency = {CurrentState.Frequency}, Target Frequency = {state.Frequency}");
+        if (CurrentState.Frequency != state.Frequency)
         {
             return false;
         }

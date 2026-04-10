@@ -13,4 +13,5 @@ public class EndingData : ScriptableObject
     public BumbulatorState BumbulatorState;
     public MicrowaveState MicrowaveState;
     public RadioState RadioState;
+    public OscilloscopeState OscilloscopeState;
 }

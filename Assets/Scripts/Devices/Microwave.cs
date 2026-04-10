@@ -1,9 +1,11 @@
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 
 public class Microwave : BaseDevice<MicrowaveState>
 {
     [SerializeField] private Light _light;
+    [SerializeField] private TextMeshProUGUI _timeDisplay;
 
     public void Start()
     {
@@ -13,8 +15,6 @@ public class Microwave : BaseDevice<MicrowaveState>
     }
     public void StartHeating()
     {
-        if(_light.gameObject.activeSelf) return;
-
         CurrentState.IsHeating = true;
         _light.gameObject.SetActive(true);
         _light.color = Color.red;
@@ -22,8 +22,6 @@ public class Microwave : BaseDevice<MicrowaveState>
     }
     public void StartFreezing()
     {
-        if (_light.gameObject.activeSelf) return;
-
         CurrentState.IsHeating = false;
         _light.gameObject.SetActive(true);
         _light.color = Color.cyan;
@@ -31,11 +29,13 @@ public class Microwave : BaseDevice<MicrowaveState>
     }
     public void SetTime(float timeValue)
     {
-        CurrentState.TimeValue = timeValue;
+        CurrentState.TimeValue = (int)Mathf.Lerp(0, 1000, timeValue);
+        _timeDisplay.SetText($"{CurrentState.TimeValue}V");
     }
     public override bool IsStateCorrect(MicrowaveState state)
     {
-        if(CurrentState.IsHeating != state.IsHeating || CurrentState.TimeValue != state.TimeValue)
+        Debug.Log($"Checking Microwave State: Heating={state.IsHeating}, TimeValue={state.TimeValue}");
+        if (CurrentState.IsHeating != state.IsHeating || CurrentState.TimeValue != state.TimeValue)
         {
             return false;
         }
@@ -47,10 +47,10 @@ public class Microwave : BaseDevice<MicrowaveState>
 public class MicrowaveState : BaseDeviceState
 {
     public bool IsHeating;
-    public float TimeValue;
+    public int TimeValue;
     public MicrowaveState()
     {
         IsHeating = false;
-        TimeValue = 0f;
+        TimeValue = 0;
     }
 }
