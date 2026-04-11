@@ -64,8 +64,6 @@ public class Bumbulator : BaseDevice<BumbulatorState>
         CurrentState.ThirdSymbol = _symbolValues[2];
         CurrentState.FourthSymbol = _symbolValues[3];
 
-        Debug.Log($"Updated symbols: {CurrentState.FirstSymbol}, {CurrentState.SecondSymbol}, {CurrentState.ThirdSymbol}, {CurrentState.FourthSymbol}");
-
         CurrentState.SwitchValue = _switchValue;
         _switchValueText.SetText(_switchValue.ToString());
     }

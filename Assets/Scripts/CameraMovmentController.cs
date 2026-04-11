@@ -16,8 +16,7 @@ public class CameraMovmentController : MonoBehaviour
 
     private void MoveCameraToDefaultPosition(InputAction.CallbackContext context)
     {
-        transform.DOMove(_defaultCameraPosition.transform.position, _moveDuration);
-        transform.DORotate(_defaultCameraPosition.transform.rotation.eulerAngles, _moveDuration);
+        MoveCameraTo(_defaultCameraPosition);
     }
 
     public void MoveCameraTo(GameObject target)

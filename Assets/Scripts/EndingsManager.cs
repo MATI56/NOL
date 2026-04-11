@@ -10,6 +10,7 @@ public class EndingsManager : MonoBehaviour
     [SerializeField] private Microwave _microwave;
     [SerializeField] private Radio _radio;
     [SerializeField] private Oscilloscope _oscilloscope;
+    [SerializeField] private TV _tv;
 
     public void CheckEndings()
     {
@@ -29,6 +30,10 @@ public class EndingsManager : MonoBehaviour
                 continue;
             }
             else if (ending.OscilloscopeState.IsRequired && !_oscilloscope.IsStateCorrect(ending.OscilloscopeState))
+            {
+                continue;
+            }
+            else if (ending.TVState.IsRequired && _tv.IsStateCorrect(ending.TVState))
             {
                 continue;
             }

@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -7,12 +8,20 @@ public class WaveVisualization : MonoBehaviour
     [SerializeField] private int _numPoints = 100;
     [SerializeField] private Vector2 _xLimits = new Vector2(0f, 2 * Mathf.PI);
 
+    [SerializeField] protected Color[] _AllColors;
 
     private float _amplitude = 1f;
     private float _frequency = 1f;
     private void Update()
     {
         Draw();
+    }
+    public void SetColor(int index)
+    {
+        if (index >= 0 && index < _AllColors.Length)
+        {
+            _lineRenderer.material.DOColor(_AllColors[index], 0.5f);
+        }
     }
     public void SetAmplitude(float amplitude)
     {

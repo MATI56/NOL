@@ -4,6 +4,8 @@ using UnityEngine.EventSystems;
 
 public class Draggable : Interactable, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
+    [SerializeField] private float _dragDuration = 0.1f;
+
     [SerializeField] private Vector3 _localAxis;
     [SerializeField] private Vector3 _offSet;
 
@@ -43,32 +45,34 @@ public class Draggable : Interactable, IDragHandler, IBeginDragHandler, IEndDrag
         Ray ray = Camera.main.ScreenPointToRay(eventData.position);
         if (_dragPlane.Raycast(ray, out float enter))
         {
-            transform.DOMove(ray.GetPoint(enter) + _offSet, 0.1f);
+            transform.DOMove(ray.GetPoint(enter) + _offSet, _dragDuration);
+            transform.DOLocalRotate(_dragRotation, _dragDuration);
         }
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (_UseDragPosition)
         {
-            transform.DOMove(_dragPosition, 0.1f);
-            transform.DORotate(_dragRotation, 0.1f);
-            transform.DOScale(_dragScale, 0.1f);
+            transform.DOMove(_dragPosition, _dragDuration);
+            transform.DORotate(_dragRotation, _dragDuration);
+            transform.DOScale(_dragScale, _dragDuration);
         }
     }
     public void OnEndDrag(PointerEventData eventData)
     {
         if (_UseDragPosition)
         {
-            transform.DOMove(_normalPosition, 0.1f);
-            transform.DORotate(_normalRotation, 0.1f);
-            transform.DOScale(_normalScale, 0.1f);
+            transform.DOMove(_normalPosition, _dragDuration);
+            transform.DORotate(_normalRotation, _dragDuration);
+            transform.DOScale(_normalScale, _dragDuration);
         }
         else
         {
             Ray ray = Camera.main.ScreenPointToRay(eventData.position);
             if (_dragPlane.Raycast(ray, out float enter))
             {
-                transform.DOMove(ray.GetPoint(enter), 0.1f);
+                transform.DOMove(ray.GetPoint(enter), _dragDuration);
+                transform.DOLocalRotate(_normalRotation, _dragDuration);
             }
         }
     }
