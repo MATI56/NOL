@@ -56,6 +56,7 @@ public class Draggable : Interactable, IDragHandler, IBeginDragHandler, IEndDrag
         if (!_isDragging) return;
 
         Ray ray = Camera.main.ScreenPointToRay(eventData.position);
+
         if (_dragPlane.Raycast(ray, out float enter))
         {
             transform.DOMove(ray.GetPoint(enter) + _offSet, _dragDuration);

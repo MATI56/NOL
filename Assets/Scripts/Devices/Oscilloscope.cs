@@ -22,7 +22,7 @@ public class Oscilloscope : BaseDevice<OscilloscopeState>
     public override bool IsStateCorrect(OscilloscopeState state)
     {
         Debug.Log($"Checking state: LeftKnobValue={state.LeftKnobValue}, RightKnobValue={state.RightKnobValue}");
-        if (CurrentState.LeftKnobValue != state.LeftKnobValue || CurrentState.RightKnobValue != state.RightKnobValue)
+        if (CurrentState.LeftKnobValue != state.LeftKnobValue || (CurrentState.RightKnobValue >= state.RightKnobValue - 2 && CurrentState.RightKnobValue <= state.RightKnobValue + 2))
         {
             return false;
         }
