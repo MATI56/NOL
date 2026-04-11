@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class CircleSlider : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
+public class CircleSlider : Interactable, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
     [SerializeField] private Transform _knobVisual;
     [SerializeField] private float _minAngle = -135f;

@@ -39,6 +39,7 @@ public class EndingsManager : MonoBehaviour
             }
             else
             {
+                GameManager.Instance.SetCurrentEndingData(ending);
                 PlayEnding(ending);
                 break;
             }

@@ -32,3 +32,7 @@ MonoBehaviour:
     IsRequired: 1
     LeftKnobValue: 24
     RightKnobValue: 6
+  TVState:
+    IsRequired: 0
+    IsAntennaUp: 0
+    Channel: 4

@@ -2,9 +2,29 @@ using UnityEngine;
 
 public class Button : Interactable
 {
-   override public void OnPointerClick(UnityEngine.EventSystems.PointerEventData eventData)
+    [SerializeField] private GameObject _blockCameraPosition;
+
+    private void Start()
     {
+        CameraMovmentController.Instance.OnCameraMove.AddListener(CheckBlockCameraPosition);
+    }
+    override public void OnPointerClick(UnityEngine.EventSystems.PointerEventData eventData)
+    {
+        if (!_isInteractable) return;
         base.OnPointerClick(eventData);
-        Debug.Log("Button Clicked!");
+    }
+    private void CheckBlockCameraPosition()
+    {
+        if (_blockCameraPosition != null)
+        {
+            if (CameraMovmentController.Instance.CurrentCameraPosition == _blockCameraPosition)
+            {
+                _isInteractable = false;
+            }
+            else
+            {
+                _isInteractable = true;
+            }
+        }
     }
 }

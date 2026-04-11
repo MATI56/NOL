@@ -1,6 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class Draggable : Interactable, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
@@ -21,8 +22,13 @@ public class Draggable : Interactable, IDragHandler, IBeginDragHandler, IEndDrag
 
     private Plane _dragPlane;
 
+    private bool _isDragging;
+    private PointerEventData _lastEventData;
+
     private void Start()
     {
+        InputManager.Instance.InputActions.UI.RightClick.performed += ForceStopDrag;
+
         _normalPosition = transform.position;
         _normalRotation = transform.localEulerAngles;
         _normalScale = transform.localScale;
@@ -40,8 +46,15 @@ public class Draggable : Interactable, IDragHandler, IBeginDragHandler, IEndDrag
         transform.localScale = _normalScale;
 
     }
+    public override void OnPointerClick(PointerEventData eventData)
+    {
+        base.OnPointerClick(eventData);
+    }
     public void OnDrag(PointerEventData eventData)
     {
+        if (!_isInteractable) return;
+        if (!_isDragging) return;
+
         Ray ray = Camera.main.ScreenPointToRay(eventData.position);
         if (_dragPlane.Raycast(ray, out float enter))
         {
@@ -51,6 +64,9 @@ public class Draggable : Interactable, IDragHandler, IBeginDragHandler, IEndDrag
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (!_isInteractable) return;
+        _isDragging = true;
+        _lastEventData = eventData;
         if (_UseDragPosition)
         {
             transform.DOMove(_dragPosition, _dragDuration);
@@ -60,6 +76,10 @@ public class Draggable : Interactable, IDragHandler, IBeginDragHandler, IEndDrag
     }
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (!_isDragging) return;
+
+        _lastEventData = null;
+        _isDragging = false;
         if (_UseDragPosition)
         {
             transform.DOMove(_normalPosition, _dragDuration);
@@ -75,5 +95,9 @@ public class Draggable : Interactable, IDragHandler, IBeginDragHandler, IEndDrag
                 transform.DOLocalRotate(_normalRotation, _dragDuration);
             }
         }
+    }
+    public void ForceStopDrag(InputAction.CallbackContext context)
+    {
+        OnEndDrag(_lastEventData);  
     }
 }

@@ -35,6 +35,7 @@ public class TV : BaseDevice<TVState>
         else
         {
             _audioSource.Stop();
+            _audioSource.clip = null;
             AudioSource.PlayClipAtPoint(_powerOffAudioClip, transform.position);
             _screenRenderer.material = _powerOffMaterial;
         }
@@ -75,6 +76,7 @@ public class TV : BaseDevice<TVState>
    
         if(_audioSource.clip != _defaultAudioClip)
         {
+            Debug.Log("No matching channel found, reverting to default.");
             _audioSource.clip = _defaultAudioClip;
             _audioSource.Play();
             _screenRenderer.material = _defaultScreenMaterial;
@@ -94,6 +96,7 @@ public class TV : BaseDevice<TVState>
 public class TVState : BaseDeviceState
 {
     public bool IsAntennaUp;
+    [Range(1, 12)]
     public int Channel;
     public TVState()
     {

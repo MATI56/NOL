@@ -13,4 +13,26 @@ MonoBehaviour:
   m_Name: TestEnding
   m_EditorClassIdentifier: 
   EndingName: Test
-  EndingTimeline: {fileID: 11400000, guid: 7ec834adcd362914a9278fedb9703364, type: 2}
+  EndingTimeline: {fileID: 11400000, guid: 8f1cc7a8683ae1d468695be277e8e220, type: 2}
+  BumbulatorState:
+    IsRequired: 0
+    FirstSymbol: 0
+    SecondSymbol: 0
+    ThirdSymbol: 0
+    FourthSymbol: 0
+    SwitchValue: 0
+  MicrowaveState:
+    IsRequired: 0
+    IsHeating: 0
+    TimeValue: 0
+  RadioState:
+    IsRequired: 0
+    Frequency: 70
+  OscilloscopeState:
+    IsRequired: 0
+    LeftKnobValue: 0
+    RightKnobValue: 0
+  TVState:
+    IsRequired: 0
+    IsAntennaUp: 0
+    Channel: 1

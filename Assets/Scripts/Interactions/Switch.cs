@@ -26,14 +26,16 @@ public class Switch : Interactable
     }
     override public void OnPointerClick(PointerEventData eventData)
     {
-        if(eventData.button != PointerEventData.InputButton.Left) return;
+        if (!_isInteractable) return;
+        if (eventData.button != PointerEventData.InputButton.Left) return;
 
         base.OnPointerClick(eventData);
         ToggleSwitch();
     }
     public void ForceSetState(bool isOn)
     {
-        if(_isOn == isOn) return;
+        if (!_isInteractable) return;
+        if (_isOn == isOn) return;
         _isOn = isOn;
         
         if (_isOn)
@@ -48,7 +50,8 @@ public class Switch : Interactable
     }
     public void SetState(bool isOn)
     {
-        if(_isOn == isOn) return;
+        if (!_isInteractable) return;
+        if (_isOn == isOn) return;
         _isOn = isOn;
         if (_isOn)
         {
