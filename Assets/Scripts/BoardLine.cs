@@ -45,7 +45,7 @@ public class BoardLine : MonoBehaviour
                         _lineRenderer.SetPosition(index, value);
                     },
                     endPos,
-                    1f
+                    0.8f
                 ).SetEase(Ease.Linear)
             );
         }

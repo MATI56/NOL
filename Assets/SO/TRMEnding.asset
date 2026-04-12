@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bda72a840e1bbbb47a9b3cdc8b39fba8, type: 3}
   m_Name: TRMEnding
   m_EditorClassIdentifier: 
-  EndingName: Tajemnica Rodziny Martwych
-  EndingTimeline: {fileID: 11400000, guid: 8f1cc7a8683ae1d468695be277e8e220, type: 2}
+  EndingName: Tajemnica Rodziny Martwych - Ending 5/5
+  EndingTimeline: {fileID: 11400000, guid: 4c67c634fd567e246a890bac335a03a0, type: 2}
   BumbulatorState:
     IsRequired: 1
     FirstSymbol: 1
-    SecondSymbol: 2
-    ThirdSymbol: 3
+    SecondSymbol: 6
+    ThirdSymbol: 8
     FourthSymbol: 4
     SwitchValue: 9
   MicrowaveState:

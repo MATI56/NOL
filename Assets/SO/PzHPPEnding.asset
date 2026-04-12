@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bda72a840e1bbbb47a9b3cdc8b39fba8, type: 3}
   m_Name: PzHPPEnding
   m_EditorClassIdentifier: 
-  EndingName: "Pod\u0105\u017Canie za histori\u0105 pewnego pingwinka..."
-  EndingTimeline: {fileID: 0}
+  EndingName: "Pod\u0105\u017Canie za histori\u0105 pewnego pingwinka... - Ending
+    4/5"
+  EndingTimeline: {fileID: 11400000, guid: fd876c13236d169479eca815094c57f3, type: 2}
   BumbulatorState:
     IsRequired: 0
     FirstSymbol: 0

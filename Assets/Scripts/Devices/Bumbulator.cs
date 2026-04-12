@@ -72,13 +72,13 @@ public class Bumbulator : BaseDevice<BumbulatorState>
 [System.Serializable]
 public class BumbulatorState : BaseDeviceState
 {
-    [Range(0, 9)]
+    [Range(0, 12)]
     public int FirstSymbol;
-    [Range(0, 9)]
+    [Range(0, 12)]
     public int SecondSymbol;
-    [Range(0, 9)]
+    [Range(0, 12)]
     public int ThirdSymbol;
-    [Range(0, 9)]
+    [Range(0, 12)]
     public int FourthSymbol;
 
     public int SwitchValue;

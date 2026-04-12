@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bda72a840e1bbbb47a9b3cdc8b39fba8, type: 3}
   m_Name: GzKEnding
   m_EditorClassIdentifier: 
-  EndingName: Gremlin z Koszalina
-  EndingTimeline: {fileID: 0}
+  EndingName: Gremlin z Koszalina - Ending 2/5
+  EndingTimeline: {fileID: 11400000, guid: 222ae3cc79760ca45b9667c23e78b5ec, type: 2}
   BumbulatorState:
     IsRequired: 1
-    FirstSymbol: 1
-    SecondSymbol: 1
-    ThirdSymbol: 1
-    FourthSymbol: 1
+    FirstSymbol: 5
+    SecondSymbol: 6
+    ThirdSymbol: 0
+    FourthSymbol: 11
     SwitchValue: 7
   MicrowaveState:
     IsRequired: 0

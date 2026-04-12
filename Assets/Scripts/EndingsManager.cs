@@ -33,12 +33,13 @@ public class EndingsManager : MonoBehaviour
             {
                 continue;
             }
-            else if (ending.TVState.IsRequired && _tv.IsStateCorrect(ending.TVState))
+            else if (ending.TVState.IsRequired && !_tv.IsStateCorrect(ending.TVState))
             {
                 continue;
             }
             else
             {
+                Debug.Log("Play" + ending.ToString());
                 GameManager.Instance.SetCurrentEndingData(ending);
                 PlayEnding(ending);
                 break;

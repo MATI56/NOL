@@ -6,6 +6,7 @@ public class Microwave : BaseDevice<MicrowaveState>
 {
     [SerializeField] private Light _light;
     [SerializeField] private TextMeshProUGUI _timeDisplay;
+    [SerializeField] private AudioClip _knobSound;
 
     public void Start()
     {
@@ -29,12 +30,14 @@ public class Microwave : BaseDevice<MicrowaveState>
     }
     public void SetTime(float timeValue)
     {
+        if (CurrentState.TimeValue == (int)Mathf.Lerp(0, 1000, timeValue)) return;
         CurrentState.TimeValue = (int)Mathf.Lerp(0, 1000, timeValue);
         _timeDisplay.SetText($"{CurrentState.TimeValue}V");
+        AudioManager.Instance.PlaySoundRandomPitch(_knobSound);
     }
     public override bool IsStateCorrect(MicrowaveState state)
     {
-        Debug.Log($"Checking Microwave State: Heating={state.IsHeating}, TimeValue={state.TimeValue}");
+        Debug.Log($"Comparing states: Current - {CurrentState.IsHeating}, {CurrentState.TimeValue} | Target - {state.IsHeating}, {state.TimeValue}");
         if (CurrentState.IsHeating != state.IsHeating || CurrentState.TimeValue != state.TimeValue)
         {
             return false;
