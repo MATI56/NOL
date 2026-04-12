@@ -3,8 +3,8 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
-using static UnityEngine.GraphicsBuffer;
+using UnityEngine.InputSystem.EnhancedTouch;
+using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 
 public class CameraMovmentController : MonoBehaviour
 {
@@ -51,4 +51,16 @@ public class CameraMovmentController : MonoBehaviour
     {
         MoveCameraTo(_defaultCameraPosition);
     }
+
+    private void OnEnable()
+    {
+        EnhancedTouchSupport.Enable();
+    }
+
+    private void OnDisable()
+    {
+        EnhancedTouchSupport.Disable();
+    }
+
 }
+
