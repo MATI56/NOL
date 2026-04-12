@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bda72a840e1bbbb47a9b3cdc8b39fba8, type: 3}
+  m_Name: PSZLNUZDKEnding
+  m_EditorClassIdentifier: 
+  EndingName: "Pr\u0119dzej \u015Bwinie zaczn\u0105 lata\u0107 ni\u017C ufoludek
+    za\u0142o\u017Cy dziennikarski kapelusz "
+  EndingTimeline: {fileID: 0}
+  BumbulatorState:
+    IsRequired: 1
+    FirstSymbol: 0
+    SecondSymbol: 0
+    ThirdSymbol: 0
+    FourthSymbol: 0
+    SwitchValue: 13
+  MicrowaveState:
+    IsRequired: 0
+    IsHeating: 0
+    TimeValue: 0
+  RadioState:
+    IsRequired: 0
+    Frequency: 70
+  OscilloscopeState:
+    IsRequired: 0
+    LeftKnobValue: 0
+    RightKnobValue: 0
+  TVState:
+    IsRequired: 0
+    IsAntennaUp: 0
+    Channel: 1

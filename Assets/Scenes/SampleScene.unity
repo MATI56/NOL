@@ -9533,6 +9533,8 @@ MonoBehaviour:
     Frequency: 70
   - Clip: {fileID: 8300000, guid: d6214dcaeda731841afcf832901630d5, type: 3}
     Frequency: 110
+  - Clip: {fileID: 8300000, guid: 94660a7fc403e00409c8de2dfcce3c16, type: 3}
+    Frequency: 89
   _audioSource: {fileID: 634940642}
   frequencyDisplay: {fileID: 1819205509}
   frequencyRange: {x: 70, y: 120}
@@ -14722,7 +14724,10 @@ MonoBehaviour:
   endings:
   - {fileID: 11400000, guid: 55753f2abe074824da2d62c7d943c034, type: 2}
   - {fileID: 11400000, guid: 6d1fbd93473f6bb44a74ab34ae162d47, type: 2}
-  - {fileID: 11400000, guid: de1dd49ad67c093468988579f01dd4d5, type: 2}
+  - {fileID: 11400000, guid: f3c6702bf34973a4da6a2b85c8c43d95, type: 2}
+  - {fileID: 11400000, guid: f767f44dabe4d5542b755cbc6db6e561, type: 2}
+  - {fileID: 11400000, guid: ce33562b50059c2469304cad9d5a374a, type: 2}
+  - {fileID: 11400000, guid: 67b38542670f36f4d8c34a027f19f847, type: 2}
   timelineDirector: {fileID: 722585222}
   _bumbulator: {fileID: 710259521}
   _microwave: {fileID: 51832761}
