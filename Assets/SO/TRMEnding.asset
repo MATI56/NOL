@@ -23,10 +23,10 @@ MonoBehaviour:
     SwitchValue: 9
   MicrowaveState:
     IsRequired: 1
-    IsHeating: 1
+    IsHeating: 0
     TimeValue: 800
   RadioState:
-    IsRequired: 1
+    IsRequired: 0
     Frequency: 110
   OscilloscopeState:
     IsRequired: 1

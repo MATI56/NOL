@@ -35,5 +35,5 @@ MonoBehaviour:
     RightKnobValue: 0
   TVState:
     IsRequired: 1
-    IsAntennaUp: 0
+    IsAntennaUp: 1
     Channel: 8
