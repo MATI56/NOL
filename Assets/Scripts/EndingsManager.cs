@@ -12,6 +12,8 @@ public class EndingsManager : MonoBehaviour
     [SerializeField] private Oscilloscope _oscilloscope;
     [SerializeField] private TV _tv;
 
+    [SerializeField] private AudioSource[] _audioToDisable;
+
     public void CheckEndings()
     {
         foreach (EndingData ending in endings)
@@ -40,6 +42,10 @@ public class EndingsManager : MonoBehaviour
             else
             {
                 Debug.Log("Play" + ending.ToString());
+                foreach (AudioSource audio in _audioToDisable)
+                {
+                    audio.Stop();
+                }
                 GameManager.Instance.SetCurrentEndingData(ending);
                 PlayEnding(ending);
                 break;
