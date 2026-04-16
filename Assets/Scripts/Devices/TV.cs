@@ -32,7 +32,7 @@ public class TV : BaseDevice<TVState>
     public void SetPower(bool isOn)
     {
         _isPoweredOn = isOn;
-        _screenLight.DOIntensity(isOn ? 0.01f : 0, 0.1f);
+        _screenLight.DOIntensity(isOn ? 0.02f : 0, 0.2f);
         _channelDisplay.gameObject.SetActive(_isPoweredOn);
         if (_isPoweredOn)
         {

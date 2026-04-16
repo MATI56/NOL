@@ -19,14 +19,14 @@ public class Microwave : BaseDevice<MicrowaveState>
         CurrentState.IsHeating = true;
         _light.gameObject.SetActive(true);
         _light.DOColor(Color.red, 1f);
-        _light.DOIntensity(0.09f, 1f);
+        _light.DOIntensity(0.3f, 1f);
     }
     public void StartFreezing()
     {
         CurrentState.IsHeating = false;
         _light.gameObject.SetActive(true);
         _light.DOColor(Color.cyan, 1f);
-        _light.DOIntensity(0.09f, 1f);
+        _light.DOIntensity(0.3f, 1f);
     }
     public void SetTime(float timeValue)
     {

@@ -7,8 +7,13 @@ public class Switch : Interactable
 {
     [SerializeField] private bool _initialState = false;
     [SerializeField] private Transform _switchVisual;
+
     [SerializeField] private Vector3 _onRotation;
+    [SerializeField] private Vector3 _onPositon;
+
     [SerializeField] private Vector3 _offRotation;
+    [SerializeField] private Vector3 _offPosition;
+
     [SerializeField] private float _toggleDuration = 0.5f;
 
     [SerializeField] private UnityEvent _onTurnOn;
@@ -23,6 +28,7 @@ public class Switch : Interactable
     {
         _isOn = _initialState;
         _switchVisual.localRotation = Quaternion.Euler(_isOn ? _onRotation : _offRotation);
+        _switchVisual.localPosition = _isOn ? _onPositon : _offPosition;
     }
     override public void OnPointerClick(PointerEventData eventData)
     {
@@ -47,6 +53,7 @@ public class Switch : Interactable
             _onForceTurnOff?.Invoke();
         }
         _switchVisual.DOLocalRotate(_isOn ? _onRotation : _offRotation, _toggleDuration);
+        _switchVisual.DOLocalMove(_isOn ? _onPositon : _offPosition, _toggleDuration);
     }
     public void SetState(bool isOn)
     {
@@ -62,6 +69,7 @@ public class Switch : Interactable
             _onTurnOff?.Invoke();
         }
         _switchVisual.DOLocalRotate(_isOn ? _onRotation : _offRotation, _toggleDuration);
+        _switchVisual.DOLocalMove(_isOn ? _onPositon : _offPosition, _toggleDuration);
     }
     private void ToggleSwitch()
     {

@@ -95,6 +95,7 @@ public class Draggable : Interactable, IDragHandler, IBeginDragHandler, IEndDrag
             {
                 transform.DOMove(ray.GetPoint(enter), _dragDuration);
                 transform.DOLocalRotate(_normalRotation, _dragDuration);
+                transform.DOScale(_normalScale, _dragDuration);
             }
         }
     }
