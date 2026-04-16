@@ -27,12 +27,12 @@ MonoBehaviour:
     TimeValue: 0
   RadioState:
     IsRequired: 1
-    Frequency: 101
+    Frequency: 102
   OscilloscopeState:
     IsRequired: 1
     LeftKnobValue: 18
     RightKnobValue: 20
   TVState:
     IsRequired: 1
-    IsAntennaUp: 1
+    IsAntennaUp: 0
     Channel: 1

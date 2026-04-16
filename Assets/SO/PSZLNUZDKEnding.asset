@@ -20,7 +20,7 @@ MonoBehaviour:
     SecondSymbol: 3
     ThirdSymbol: 9
     FourthSymbol: 10
-    SwitchValue: 13
+    SwitchValue: 4
   MicrowaveState:
     IsRequired: 0
     IsHeating: 0

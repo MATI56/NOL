@@ -60,6 +60,6 @@ public class RadioState : BaseDeviceState
     public float Frequency;
     public RadioState()
     {
-        Frequency = 102f;
+        Frequency = 101f;
     }
 }
